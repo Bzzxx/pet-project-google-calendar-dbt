@@ -17,7 +17,7 @@ for reporting, automation, and trend analysis.
 This diagram shows the full analytics pipeline:
 
 - **Google Calendar** — source of events and attendees  
-- (optionally) **Fivetran / ingestion layer** — automated data loading into Snowflake  
+- **Fivetran / ingestion layer** — automated data loading into Snowflake (optionally)
 - **Snowflake** — cloud data warehouse (raw + staging + analytics schemas)  
 - **dbt Core** — transformations (staging → intermediate → marts), tests, documentation  
 - **GitHub Actions** — CI/CD orchestration for scheduled dbt runs  
