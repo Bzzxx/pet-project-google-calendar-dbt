@@ -9,7 +9,7 @@ for reporting, automation, and trend analysis.
 ## 🖼 Architecture Overview
 
 <p align="center">
-  <img src="docs/images/calendar_dbt_architecture.png" 
+  <img src="![dbt + Snowflake pipeline](.github/assets/dbt_snowflake_pipeline.png)" 
        alt="Google Calendar → Snowflake → dbt → GitHub Actions → Power BI architecture"
        width="85%">
 </p>
