@@ -70,13 +70,14 @@ google_calendar_project/
 ├── target/
 └── README.md
 ```
-<details>
-<summary><strong>⚙️ CI/CD Overview</strong></summary>
+---
+
+## ⚙️ CI/CD Overview
 
 Automated CI/CD process powered by **GitHub Actions**, used to run dbt transformations,
 validate data quality, and deploy analytics models to **Snowflake** on a daily schedule.
 
-### 🔁 Workflow Summary
+## 🔁 Workflow Summary
 - Installs dbt runtime and dependencies  
 - Generates `profiles.yml` securely using GitHub Secrets  
 - Runs `dbt deps`  
@@ -84,73 +85,71 @@ validate data quality, and deploy analytics models to **Snowflake** on a daily s
 - Publishes transformed datasets to Snowflake  
 - Ensures reliability, observability, and automation across all pipeline layers  
 
-### ⏱️ Schedule
+## ⏱️ Schedule
 | Trigger | Value |
 |--------|--------|
 | Manual trigger | ✔️ |
 | Daily cron | `0 4 * * *` (04:00 UTC) |
 
-### 🎯 Purpose
+## 🎯 Purpose
 Ensures consistent data freshness, test validation, and production-ready
 automation for the analytics workflow.
 
-</details>
+---
 
-<details>
-<summary><strong>🧪 Data Tests</strong></summary>
+
+## 🧪 Data Tests
 
 The project uses **dbt native tests** and **custom logic** to ensure data consistency across staging,
 intermediate layers, and marts.
 
-### ✅ Built-in Tests
+## ✅ Built-in Tests
 - `not_null`
 - `unique`
 - `relationships`
 
-### 🧩 Custom Tests
+## 🧩 Custom Tests
 - Grain validation for event-attendee models  
 - Business-rule tests for summary marts  
 
-### 📁 Location
+## 📁 Location
 ``models/marts/schema.yml``
 
-### 🎯 Purpose
+## 🎯 Purpose
 Guarantees correctness and reliability of every transformed dataset before
 publishing analytics marts.
 
-</details>
+---
 
-<details>
-<summary><strong>🚀 Future Improvements</strong></summary>
+
+## 🚀 Future Improvements
 
 Planned enhancements to expand analytical capabilities and improve long-term observability.
 
-### 📌 Roadmap
+## 📌 Roadmap
 - Incremental history for events & attendees  
 - dbt snapshots for attendee status evolution  
 - Visualization dashboards (Tableau / PowerBI)  
 - Automated anomaly-detection alerts in the pipeline  
 
-### 🎯 Vision
+## 🎯 Vision
 Build a scalable, production-grade analytics ecosystem around Google Calendar data.
 
-</details>
+---
 
-<details>
-<summary><strong>📊 Project Status</strong></summary>
+## 📊 Project Status
 
 Current operational state of the pipeline.
 
-### 🔍 Indicators
+## 🔍 Indicators
 | Component | Status |
 |----------|--------|
 | Snowflake connection | 🟢 Operational |
 | dbt model builds | 🟢 Passing |
 | GitHub Actions automation | 🟢 Enabled |
 
-### 🏁 Summary
+## 🏁 Summary
 All core components (Snowflake, dbt, CI/CD automation) are stable, functional,
 and running in production mode.
 
-</details>
 
