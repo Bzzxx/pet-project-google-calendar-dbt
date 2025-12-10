@@ -175,3 +175,19 @@ google_calendar_project/
 └── .github/workflows/
     └── dbt_prod.yaml
 ```
+cicd_overview:
+  description: >
+    Automated GitHub Actions pipeline for running dbt transformations
+    and ensuring daily data freshness in Snowflake.
+  schedule:
+    manual_trigger: true
+    cron: "0 4 * * *"   # runs daily at 04:00 UTC
+  workflow_steps:
+    - Install dbt runtime and dependencies
+    - Generate profiles.yml from GitHub Secrets
+    - Run dbt deps
+    - Run dbt build (models and tests)
+    - Deploy transformed datasets to Snowflake
+  purpose: >
+    Ensures continuous reliability, data quality, and automation of the
+    analytics pipeline.
