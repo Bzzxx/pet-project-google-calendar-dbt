@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      
+      # один JSON-секрет з усіма параметрами Snowflake
       PET_PROJECT_SECRETS: ${{ secrets.PET_PROJECT_SECRETS }}
 
     steps:
@@ -34,36 +34,26 @@ jobs:
           python -m pip install --upgrade pip
           pip install dbt-core dbt-snowflake
 
-            - name: Create profiles.yml
+      - name: Create profiles.yml
         run: |
-          python - << 'PY'
-          import os, json, textwrap, pathlib
-
-          # зчитуємо JSON зі змінної середовища
-          secrets = json.loads(os.environ["PET_PROJECT_SECRETS"])
-
-          content = f"""
+          mkdir -p ~/.dbt
+          cat > ~/.dbt/profiles.yml << 'EOF'
+          {% set s = fromjson(env_var('PET_PROJECT_SECRETS')) %}
           google_calendar_project:
             target: prod
             outputs:
               prod:
                 type: snowflake
-                account: "{secrets['SNOWFLAKE_ACCOUNT']}"
-                user: "{secrets['SNOWFLAKE_USER']}"
-                password: "{secrets['SNOWFLAKE_PASSWORD']}"
-                role: "{secrets['SNOWFLAKE_ROLE']}"
-                database: "{secrets['SNOWFLAKE_DATABASE']}"
-                warehouse: "{secrets['SNOWFLAKE_WAREHOUSE']}"
-                schema: "{secrets['SNOWFLAKE_SCHEMA']}"
+                account: "{{ s['SNOWFLAKE_ACCOUNT'] }}"
+                user: "{{ s['SNOWFLAKE_USER'] }}"
+                password: "{{ s['SNOWFLAKE_PASSWORD'] }}"
+                role: "{{ s['SNOWFLAKE_ROLE'] }}"
+                database: "{{ s['SNOWFLAKE_DATABASE'] }}"
+                warehouse: "{{ s['SNOWFLAKE_WAREHOUSE'] }}"
+                schema: "{{ s['SNOWFLAKE_SCHEMA'] }}"
                 threads: 4
                 client_session_keep_alive: false
-          """
-
-          path = pathlib.Path.home() / ".dbt" / "profiles.yml"
-          path.parent.mkdir(parents=True, exist_ok=True)
-          path.write_text(textwrap.dedent(content))
-          PY
-
+          EOF
 
       - name: Generate dbt docs
         run: |
