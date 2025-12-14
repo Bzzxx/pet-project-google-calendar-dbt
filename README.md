@@ -140,11 +140,6 @@ publishing analytics marts.
 
 ---
 
-
-## 🚀 Future Improvements
-
-Planned enhancements to expand analytical capabilities and improve long-term observability.
-
 ## 📌 Roadmap
 - Incremental history for events & attendees  
 - dbt snapshots for attendee status evolution  
