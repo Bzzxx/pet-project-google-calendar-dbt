@@ -29,14 +29,19 @@ clean-targets:         # directories to be removed by `dbt clean`
 # In this example config, we tell dbt to build all models in the example/
 # directory as views. These settings can be overridden in the individual model
 # files using the `{{ config(...) }}` macro.
-  models:
+ models:
   google_calendar_project:
     staging:
       +schema: DBT_STAGE
+      +materialized: view
+
     intermediate:
-      +schema: DBT_INT
+      +schema: DBT_STAGE
+      +materialized: view
+
     marts:
-      +schema: DBT_MART
+      +schema: DBT_STAGE
+      +materialized: table
 
     # Config indicated by + and applies to all files under models/example/
    # example:
