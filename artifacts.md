@@ -9,6 +9,12 @@ Registered Fivetran account and connected Snowflake as destination
 Created Snowflake account with user, role, and warehouse
 Granted necessary access permissions
 
+<p align="center">
+  <img src=".github/assets/Fiv_con.png"
+       alt="Fivetran_connection"
+       width="85%">
+</p>
+
 # 3. Ingestion
 
 Configured Google Calendar connector in Fivetran
