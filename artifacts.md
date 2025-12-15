@@ -45,9 +45,9 @@
 
 - Created three-layer dbt architecture:
 
-**Staging: Raw source data models
-**Intermediate: Business logic transformations
-**Marts: Final analytical models
+- **Staging: Raw source data models
+- **Intermediate: Business logic transformations
+- **Marts: Final analytical models
 
 ---
 
@@ -90,4 +90,4 @@ Automated pipeline that syncs Google Calendar data, transforms it into analytics
 
 ---
 
-🔗 Back to Main Project
+🔗[Back to Main Project](/README.md)
