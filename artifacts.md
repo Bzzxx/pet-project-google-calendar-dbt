@@ -12,7 +12,7 @@
 - Granted necessary access permissions
 
 <p align="center">
-  <img src=".github/assets/Snowflake_DB_view"
+  <img src=".github/assets/Snowflake_DB_view.png"
        alt="Snowflake_DB_view"
        width="85%">
 </p>
