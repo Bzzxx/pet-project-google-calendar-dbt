@@ -2,47 +2,47 @@ version: 2
 
 models:
   - name: calendar_events_summary
-    description: "Агрегація по кожній події з кількістю учасників та розбиттям по статусах"
+    description: "Aggregation for each event with the number of participants and breakdown by status"
     columns:
       - name: EVENT_ID
-        description: "Унікальний ідентифікатор події"
+        description: "Unique event identifier"
         tests:
           - not_null
           - unique
       - name: EVENT_TITLE
-        description: "Назва події"
+        description: "Event name"
       - name: EVENT_START_AT
-        description: "Дата і час початку події"
+        description: "Event start date and time"
         tests:
           - not_null
       - name: total_attendees
-        description: "Загальна кількість унікальних учасників події"
+        description: "Total number of unique event participants"
 
   - name: attendees_status_summary
-    description: "Статистика по кожному учаснику: скільки подій, у яких статусах брав участь"
+    description: "Statistics for each participant: how many events, in which statuses participated"
     columns:
       - name: ATTENDEE_EMAIL
-        description: "E-mail учасника"
+        description: "Participant's e-mail"
         tests:
           - not_null
           - unique
       - name: events_total
-        description: "Скільки різних подій відвідав цей учасник"
+        description: "How many different events did this participant attend"
       - name: events_accepted
-        description: "Скільки подій учасник прийняв"
+        description: "How many events did the participant accept"
       - name: events_declined
-        description: "Скільки подій учасник відхилив"
+        description: "How many events did the participant decline"
 
   - name: events_activity_over_time
-    description: "Активність по днях і тижнях: кількість подій і унікальних учасників"
+    description: "Activity by day and week: number of events and unique participants"
     columns:
       - name: activity_day
-        description: "День, до якого відноситься активність"
+        description: "Day to which the activity refers"
         tests:
           - not_null
       - name: week_start
-        description: "Початок тижня, до якого належить цей день"
+        description: "The beginning of the week to which this day belongs"
       - name: events_per_day
-        description: "Кількість подій за день"
+        description: "Number of events per day"
       - name: attendees_per_day
-        description: "Кількість унікальних учасників за день"
+        description: "Number of unique participants per day"
